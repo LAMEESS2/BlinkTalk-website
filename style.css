@@ -54,10 +54,23 @@ body {
     color: var(--text-white);
     overflow-x: hidden;
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 html {
     scroll-behavior: smooth;
+}
+
+/* Touch device optimization */
+@media (hover: none) and (pointer: coarse) {
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    button, a {
+        touch-action: manipulation;
+    }
 }
 
 /* ===== ANIMATED BACKGROUND ===== */
@@ -721,13 +734,17 @@ html {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow-lg);
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .video-container video {
     width: 100%;
-    height: 100%;
+    height: auto;
     display: block;
     border-radius: 20px;
+    max-height: 400px;
+    object-fit: contain;
 }
 
 .video-placeholder {
@@ -1638,5 +1655,196 @@ html {
     
     .section {
         padding: 50px 4%;
+    }
+}
+
+/* iPhone Specific Optimizations */
+@media (max-width: 430px) {
+    /* iPhone 14 Pro Max and similar */
+    .hero {
+        padding: 90px 5% 50px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* Video container for iPhone */
+    .video-container {
+        max-width: 100%;
+        margin: 0;
+    }
+    
+    .video-container video {
+        max-height: 250px;
+        border-radius: 15px;
+    }
+    
+    .demo-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    /* Stats layout for iPhone */
+    .hero-stats {
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 10px;
+    }
+    
+    .stat-item {
+        flex: 0 1 30%;
+        min-width: auto;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+    }
+    
+    /* Buttons for iPhone */
+    .btn-large {
+        padding: 12px 25px;
+        font-size: 0.95rem;
+    }
+    
+    /* Cards for iPhone */
+    .impact-card,
+    .feature-card {
+        padding: 20px 15px;
+    }
+    
+    .impact-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    
+    .impact-number {
+        font-size: 2rem;
+    }
+    
+    /* Timeline for iPhone */
+    .timeline-content {
+        padding: 15px;
+    }
+    
+    .timeline-content h3 {
+        font-size: 1.1rem;
+    }
+    
+    /* Team cards for iPhone */
+    .team-info {
+        padding: 20px 15px;
+    }
+    
+    .team-info h3 {
+        font-size: 1.1rem;
+    }
+    
+    /* User guide for iPhone */
+    .guide-intro h1 {
+        font-size: 1.8rem;
+    }
+    
+    .instructions-section {
+        padding: 25px 15px;
+    }
+    
+    .instructions-section h3 {
+        font-size: 1.5rem;
+    }
+    
+    .control-item {
+        padding: 20px 15px;
+    }
+    
+    .control-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .morse-reference {
+        grid-template-columns: repeat(auto-fill, minmax(55px, 1fr));
+        gap: 6px;
+    }
+    
+    .morse-item {
+        padding: 10px 5px;
+    }
+    
+    .morse-char {
+        font-size: 1.1rem;
+    }
+    
+    .morse-code {
+        font-size: 0.85rem;
+    }
+    
+    .special-function {
+        padding: 20px 15px;
+    }
+    
+    .special-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    
+    .special-content strong {
+        font-size: 1.1rem;
+    }
+    
+    .morse-code-display {
+        font-size: 1.1rem;
+        padding: 4px 10px;
+    }
+}
+
+/* Safe area padding for iPhone notch */
+@supports (padding: env(safe-area-inset-top)) {
+    .navbar {
+        padding-top: max(20px, env(safe-area-inset-top));
+        padding-bottom: 20px;
+        padding-left: max(5%, env(safe-area-inset-left));
+        padding-right: max(5%, env(safe-area-inset-right));
+    }
+    
+    .hero {
+        padding-top: max(120px, calc(90px + env(safe-area-inset-top)));
+    }
+    
+    #app-interface {
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
+/* Landscape mode for iPhones */
+@media (max-width: 896px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 100px 5% 50px;
+    }
+    
+    .hero-stats {
+        flex-direction: row;
+        gap: 30px;
+    }
+    
+    .video-container video {
+        max-height: 300px;
+    }
+    
+    .section {
+        padding: 50px 5%;
     }
 }
