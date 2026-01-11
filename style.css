@@ -158,6 +158,21 @@ html {
     font-style: italic;
 }
 
+/* Mobile Header Simplified */
+@media (max-width: 768px) {
+    .header-right {
+        display: none;
+    }
+    
+    .institutional-info h3 {
+        display: none;
+    }
+    
+    .institutional-info p:not(.department) {
+        display: none;
+    }
+}
+
 /* ===== NAVBAR ===== */
 .navbar {
     display: flex;
@@ -1446,57 +1461,45 @@ html {
 
 /* Tablet - Portrait & Mobile - Landscape */
 @media (max-width: 768px) {
-    /* Header mobile */
+    /* Header mobile - iPhone style */
     .site-header {
-        padding: 15px 5%;
+        padding: 12px 5%;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     .header-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 12px;
     }
     
     .header-left {
-        flex-direction: column;
-        gap: 10px;
+        gap: 12px;
     }
     
     .uob-logo {
-        height: 50px;
+        height: 40px;
     }
     
-    .institutional-info h3 {
-        font-size: 1rem;
-    }
-    
-    .institutional-info p {
-        font-size: 0.8rem;
-    }
-    
-    .header-right {
-        text-align: center;
-    }
-    
-    .project-title {
-        font-size: 1.5rem;
-    }
-    
-    .project-tagline {
+    .institutional-info .department {
         font-size: 0.85rem;
+        font-weight: 600;
     }
     
     /* Navbar Mobile Menu */
     .navbar {
-        top: 180px;
+        top: 65px;
+        padding: 12px 5%;
     }
     
     .nav-links {
         position: fixed;
-        top: 250px;
+        top: 125px;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 250px);
+        height: calc(100vh - 125px);
         background: rgba(10, 10, 10, 0.98);
         backdrop-filter: blur(20px);
         flex-direction: column;
@@ -1536,7 +1539,7 @@ html {
     
     /* Hero section mobile */
     .hero {
-        padding: 230px 5% 60px;
+        padding: 180px 5% 60px;
         min-height: auto;
     }
     
@@ -1645,25 +1648,26 @@ html {
 
 /* Small Mobile Phones */
 @media (max-width: 480px) {
-    /* Header extra small */
+    /* Header extra small - iPhone style */
+    .site-header {
+        padding: 10px 4%;
+    }
+    
     .uob-logo {
-        height: 40px;
+        height: 36px;
     }
     
-    .institutional-info h3 {
-        font-size: 0.9rem;
-    }
-    
-    .institutional-info p {
-        font-size: 0.75rem;
-    }
-    
-    .project-title {
-        font-size: 1.3rem;
-    }
-    
-    .project-tagline {
+    .institutional-info .department {
         font-size: 0.8rem;
+    }
+    
+    .navbar {
+        top: 58px;
+    }
+    
+    .nav-links {
+        top: 115px;
+        height: calc(100vh - 115px);
     }
     
     /* Even smaller text */
@@ -1834,26 +1838,31 @@ html {
 
 /* iPhone Specific Optimizations */
 @media (max-width: 430px) {
-    /* Header for iPhone */
+    /* Header for iPhone - minimal and clean */
     .site-header {
-        padding: 12px 4%;
+        padding: 10px 4%;
     }
     
     .uob-logo {
-        height: 45px;
+        height: 38px;
     }
     
-    .institutional-info h3 {
-        font-size: 0.95rem;
+    .institutional-info .department {
+        font-size: 0.8rem;
     }
     
-    .project-title {
-        font-size: 1.4rem;
+    .navbar {
+        top: 60px;
+    }
+    
+    .nav-links {
+        top: 118px;
+        height: calc(100vh - 118px);
     }
     
     /* iPhone 14 Pro Max and similar */
     .hero {
-        padding: 220px 5% 50px;
+        padding: 170px 5% 50px;
     }
     
     .hero-title {
@@ -2026,41 +2035,33 @@ html {
 /* Landscape mode for iPhones */
 @media (max-width: 896px) and (orientation: landscape) {
     .site-header {
-        padding: 10px 5%;
+        padding: 8px 5%;
     }
     
     .header-content {
-        gap: 15px;
+        gap: 10px;
     }
     
     .uob-logo {
-        height: 40px;
+        height: 32px;
     }
     
-    .institutional-info h3 {
-        font-size: 0.9rem;
-    }
-    
-    .institutional-info p {
+    .institutional-info .department {
         font-size: 0.75rem;
     }
     
-    .project-title {
-        font-size: 1.3rem;
-    }
-    
-    .project-tagline {
-        font-size: 0.8rem;
-    }
-    
     .navbar {
-        top: 80px;
-        padding: 10px 5%;
+        top: 50px;
+        padding: 8px 5%;
+    }
+    
+    .nav-links {
+        top: 105px;
     }
     
     .hero {
         min-height: auto;
-        padding: 150px 5% 50px;
+        padding: 140px 5% 50px;
     }
     
     .hero-stats {
