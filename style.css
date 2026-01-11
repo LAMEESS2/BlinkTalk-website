@@ -85,6 +85,79 @@ html {
     background: radial-gradient(ellipse at center, rgba(102, 126, 234, 0.05) 0%, transparent 70%);
 }
 
+/* ===== HEADER SECTION ===== */
+.site-header {
+    background: linear-gradient(135deg, rgba(10, 10, 10, 0.98) 0%, rgba(30, 30, 30, 0.95) 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(0, 229, 255, 0.3);
+    padding: 20px 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1001;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.uob-logo {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+}
+
+.institutional-info h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-white);
+    margin-bottom: 4px;
+}
+
+.institutional-info p {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    margin: 2px 0;
+}
+
+.institutional-info .department {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.header-right {
+    text-align: right;
+}
+
+.project-title {
+    font-size: 2rem;
+    font-weight: 900;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+}
+
+.project-tagline {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    font-weight: 500;
+    font-style: italic;
+}
+
 /* ===== NAVBAR ===== */
 .navbar {
     display: flex;
@@ -95,7 +168,7 @@ html {
     backdrop-filter: blur(10px);
     position: fixed;
     width: 100%;
-    top: 0;
+    top: 110px;
     z-index: 1000;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: var(--transition-normal);
@@ -281,7 +354,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 120px 5% 80px;
+    padding: 200px 5% 80px;
     gap: 60px;
     position: relative;
 }
@@ -895,6 +968,30 @@ html {
     background: var(--bg-dark);
 }
 
+.project-info {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px 40px;
+    background: var(--bg-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 4px solid var(--primary);
+    border-radius: 15px;
+    text-align: center;
+}
+
+.project-info p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.project-info strong {
+    color: var(--primary);
+    font-weight: 700;
+}
+
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1082,6 +1179,7 @@ html {
 }
 
 #app-interface {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -1348,13 +1446,57 @@ html {
 
 /* Tablet - Portrait & Mobile - Landscape */
 @media (max-width: 768px) {
+    /* Header mobile */
+    .site-header {
+        padding: 15px 5%;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .header-left {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .uob-logo {
+        height: 50px;
+    }
+    
+    .institutional-info h3 {
+        font-size: 1rem;
+    }
+    
+    .institutional-info p {
+        font-size: 0.8rem;
+    }
+    
+    .header-right {
+        text-align: center;
+    }
+    
+    .project-title {
+        font-size: 1.5rem;
+    }
+    
+    .project-tagline {
+        font-size: 0.85rem;
+    }
+    
     /* Navbar Mobile Menu */
+    .navbar {
+        top: 180px;
+    }
+    
     .nav-links {
         position: fixed;
-        top: 70px;
+        top: 250px;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 70px);
+        height: calc(100vh - 250px);
         background: rgba(10, 10, 10, 0.98);
         backdrop-filter: blur(20px);
         flex-direction: column;
@@ -1394,7 +1536,7 @@ html {
     
     /* Hero section mobile */
     .hero {
-        padding: 100px 5% 60px;
+        padding: 230px 5% 60px;
         min-height: auto;
     }
     
@@ -1424,6 +1566,17 @@ html {
     .team-grid {
         grid-template-columns: 1fr;
         gap: 25px;
+    }
+    
+    /* Project info mobile */
+    .project-info {
+        padding: 25px 20px;
+        margin: 30px auto;
+    }
+    
+    .project-info p {
+        font-size: 1rem;
+        line-height: 1.6;
     }
     
     /* Tech badges - remove absolute positioning on mobile */
@@ -1492,6 +1645,27 @@ html {
 
 /* Small Mobile Phones */
 @media (max-width: 480px) {
+    /* Header extra small */
+    .uob-logo {
+        height: 40px;
+    }
+    
+    .institutional-info h3 {
+        font-size: 0.9rem;
+    }
+    
+    .institutional-info p {
+        font-size: 0.75rem;
+    }
+    
+    .project-title {
+        font-size: 1.3rem;
+    }
+    
+    .project-tagline {
+        font-size: 0.8rem;
+    }
+    
     /* Even smaller text */
     .hero-title {
         font-size: 1.8rem;
@@ -1660,9 +1834,26 @@ html {
 
 /* iPhone Specific Optimizations */
 @media (max-width: 430px) {
+    /* Header for iPhone */
+    .site-header {
+        padding: 12px 4%;
+    }
+    
+    .uob-logo {
+        height: 45px;
+    }
+    
+    .institutional-info h3 {
+        font-size: 0.95rem;
+    }
+    
+    .project-title {
+        font-size: 1.4rem;
+    }
+    
     /* iPhone 14 Pro Max and similar */
     .hero {
-        padding: 90px 5% 50px;
+        padding: 220px 5% 50px;
     }
     
     .hero-title {
@@ -1811,6 +2002,10 @@ html {
 
 /* Safe area padding for iPhone notch */
 @supports (padding: env(safe-area-inset-top)) {
+    .site-header {
+        padding-top: max(20px, env(safe-area-inset-top));
+    }
+    
     .navbar {
         padding-top: max(20px, env(safe-area-inset-top));
         padding-bottom: 20px;
@@ -1819,7 +2014,7 @@ html {
     }
     
     .hero {
-        padding-top: max(120px, calc(90px + env(safe-area-inset-top)));
+        padding-top: max(200px, calc(170px + env(safe-area-inset-top)));
     }
     
     #app-interface {
@@ -1830,9 +2025,42 @@ html {
 
 /* Landscape mode for iPhones */
 @media (max-width: 896px) and (orientation: landscape) {
+    .site-header {
+        padding: 10px 5%;
+    }
+    
+    .header-content {
+        gap: 15px;
+    }
+    
+    .uob-logo {
+        height: 40px;
+    }
+    
+    .institutional-info h3 {
+        font-size: 0.9rem;
+    }
+    
+    .institutional-info p {
+        font-size: 0.75rem;
+    }
+    
+    .project-title {
+        font-size: 1.3rem;
+    }
+    
+    .project-tagline {
+        font-size: 0.8rem;
+    }
+    
+    .navbar {
+        top: 80px;
+        padding: 10px 5%;
+    }
+    
     .hero {
         min-height: auto;
-        padding: 100px 5% 50px;
+        padding: 150px 5% 50px;
     }
     
     .hero-stats {
